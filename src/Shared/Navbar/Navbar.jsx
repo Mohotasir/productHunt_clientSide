@@ -63,9 +63,9 @@ const Nav = () => {
                     </div>
                     {user ? (
                         <>
-                            <button onClick={handleSignOut} className="btn  btn-sm py-2 bg border-none mr-2" to="/login">Sign Out</button>
-                            <img className="w-[40px] h-[40px] rounded-full mr-2 hover:cursor-pointer" src={user.photoURL} alt="" data-tooltip-id="my-tooltip" data-tooltip-content={user.displayName} />
-                            <Tooltip id="my-tooltip" />
+                            {/* <button onClick={handleSignOut} className="btn  btn-sm py-2 bg border-none mr-2" to="/login">Sign Out</button> */}
+                            <img className="w-[45px]  border-2 p-0.5 h-[45px] rounded-full mr-2 hover:cursor-pointer" src={user.photoURL} alt=""  />
+                           
                         </>
                     ) : (
                         <>
