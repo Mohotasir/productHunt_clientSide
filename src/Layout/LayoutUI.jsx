@@ -4,7 +4,7 @@ import Navbar from "../Shared/Navbar/Navbar";
 export default function LayoutUI() {
   return (
     <div>
-        <div>
+        <div className="h-[72px]">
             <Navbar></Navbar>
         </div>
         <Outlet></Outlet>

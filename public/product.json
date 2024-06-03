@@ -1,0 +1,28 @@
+{
+    "featuredProducts": [
+        {
+            "productImage": "https://via.placeholder.com/300",
+            "productName": "Product Alpha",
+            "tags": ["Tech", "AI", "Innovation"],
+            "upvoteCount": 150,
+            "description": "An innovative AI-driven tech product designed to enhance productivity.",
+            "featured": true
+        },
+        {
+            "productImage": "https://via.placeholder.com/300",
+            "productName": "Product Beta",
+            "tags": ["Health", "Fitness", "Wellness"],
+            "upvoteCount": 230,
+            "description": "A revolutionary fitness tracker that helps you stay in shape and monitor your health.",
+            "featured": true
+        },
+        {
+            "productImage": "https://via.placeholder.com/300",
+            "productName": "Product Gamma",
+            "tags": ["Finance", "Blockchain", "Crypto"],
+            "upvoteCount": 320,
+            "description": "A secure and user-friendly blockchain wallet for managing your cryptocurrency.",
+            "featured": true
+        }
+    ]
+}
