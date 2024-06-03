@@ -1,7 +1,7 @@
 import { GoogleAuthProvider,signInWithPopup, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, GithubAuthProvider, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../Firebase/firebase.config";
-import useAxiosPublic from "../hooks/Axios/useAxiosPublic";
+// import useAxiosPublic from "../hooks/Axios/useAxiosPublic";
 
 
 export const AuthContext = createContext(null);
@@ -10,7 +10,7 @@ const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
     const googleProvider = new GoogleAuthProvider();
     const gitHubProvider = new GithubAuthProvider();
-    const axiosPublic = useAxiosPublic();
+    //const axiosPublic = useAxiosPublic();
     const createUser = (email, password) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password);
@@ -46,18 +46,18 @@ const AuthProvider = ({ children }) => {
         const unSubscribe = onAuthStateChanged(auth,currentUser =>{
             setUser(currentUser);
             setLoading(false);
-            if(currentUser){
-                const loggedUser = {email:currentUser?.email};
-                axiosPublic.post('/jwt',loggedUser)
-                 .then(res=>{
-                    console.log('token response:',res.data);
-                    if(res.data.token){
-                        localStorage.setItem('access-token',res.data.token)
-                    }else{
-                        localStorage.removeItem(res.data.token)
-                    }
-                 })
-            }
+            // if(currentUser){
+            //     const loggedUser = {email:currentUser?.email};
+            //     axiosPublic.post('/jwt',loggedUser)
+            //      .then(res=>{
+            //         console.log('token response:',res.data);
+            //         if(res.data.token){
+            //             localStorage.setItem('access-token',res.data.token)
+            //         }else{
+            //             localStorage.removeItem(res.data.token)
+            //         }
+            //      })
+            // }
         });
         return ()=>{
             unSubscribe();

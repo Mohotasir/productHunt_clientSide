@@ -2,10 +2,14 @@
 import {
     createBrowserRouter,
   } from "react-router-dom";
+import LayoutUI from "../Layout/LayoutUI";
 
  export const router = createBrowserRouter([
     {
       path: "/",
-      element: <div>Hello world!</div>,
+      element: <LayoutUI></LayoutUI>,
+      children:[
+        
+      ]
     },
   ]);
