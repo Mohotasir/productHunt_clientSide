@@ -8,6 +8,11 @@ import Signup from "../Pages/Register/Signup";
 import Error from "../Pages/ErrorPage/Error";
 import Allproducts from "../Pages/Allproducts/Allproducts";
 import Home from "../Pages/HOME/Home";
+import ProductDetails from "../Pages/HOME/ProductDetails/ProductDetails";
+import DashBoardLayout from "../Layout/DashBoardLayout";
+import Myprofile from "../Pages/UserDashBoard/myProfile/Myprofile";
+import MyProduct from "../Pages/UserDashBoard/myProuct/MyProduct";
+import AddProduct from "../Pages/UserDashBoard/AddProduct/AddProduct";
 
  export const router = createBrowserRouter([
     {
@@ -30,7 +35,29 @@ import Home from "../Pages/HOME/Home";
         {
             path:"/",
             element:<Home></Home>
+        },
+        {
+          path:"/porductdetails",
+          element:<ProductDetails></ProductDetails>
         }
       ]
     },
+    {
+      path:"/dashboard",
+      element:<DashBoardLayout></DashBoardLayout>,
+      children:[
+         {
+           path:"/dashboard/myprofile",
+           element:<Myprofile></Myprofile>
+         },
+         {
+          path: "/dashboard/myproduct",
+          element: <MyProduct></MyProduct>
+         },
+         {
+          path: "/dashboard/addproduct",
+          element:<AddProduct></AddProduct>
+         }
+      ]
+    }
   ]);

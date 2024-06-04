@@ -29,7 +29,7 @@ const Nav = () => {
       </li>
       <li>
         <NavLink
-          to="/allpost"
+          to="/allproducts"
           style={({ isActive }) => {
             return {
               color: isActive && "#5DADE2",

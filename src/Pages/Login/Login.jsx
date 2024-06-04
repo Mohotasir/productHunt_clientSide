@@ -5,9 +5,11 @@ import { Link, useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { AuthContext } from '../../AuthProvider/AuthProdiver';
+import useAxiosPublic from '../../Hooks/Axios/useAxiosPublic';
 
 
 const Login = () => {
+    const axiosPublic = useAxiosPublic()
     const location = useLocation();
     const navigate = useNavigate();
     const [showModal, setShowModal] = useState(false);
@@ -54,8 +56,18 @@ const Login = () => {
     };
     const handleGoogleLogin = () => {
         signInWithGoogle()
-            .then(() => {
-
+            .then((res) => {
+                const usrInfo = {
+                    name: res.user?.displayName,
+                    email: res.user?.email,
+                    photoURL: res.user?.photoURL,
+                    status : null
+                }
+                
+                axiosPublic.post('/users',usrInfo)
+                .then(res=>{
+                    console.log(res.data);
+                })
                 setShowModal(true);
                 setTimeout(() => {
                     navigate(location?.state ? location?.state : '/');
