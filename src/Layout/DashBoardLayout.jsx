@@ -35,8 +35,8 @@ export default function DashBoardLayout() {
             <h1 className="font-semibold poppin subclr"> DASHBOARD</h1>
           </div>
           {isAdmin && (
-            <ul className="flex flex-col gap-6 pt-12 lg:pt-24  ml-6  ">
-              <li className="w-full ">
+            <ul className="flex flex-col gap-6 pt-12 lg:pt-24  ml-6">
+              <li className="w-full">
                 <NavLink
                   className="flex items-center  gap-2"
                   to="/dashboard/admin/statistics"
@@ -228,7 +228,7 @@ export default function DashBoardLayout() {
             </li>
           </ul>
         </div>
-        <div className="flex-1">
+        <div className="flex-1 lg:ml-72">
           <Outlet></Outlet>
         </div>
       </div>
