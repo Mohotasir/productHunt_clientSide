@@ -8,7 +8,7 @@ import Signup from "../Pages/Register/Signup";
 import Error from "../Pages/ErrorPage/Error";
 import Allproducts from "../Pages/Allproducts/Allproducts";
 import Home from "../Pages/HOME/Home";
-import ProductDetails from "../Pages/HOME/ProductDetails/ProductDetails";
+import ProductDetails from "../Pages/ProductDetails/ProductDetails";
 import DashBoardLayout from "../Layout/DashBoardLayout";
 import Myprofile from "../Pages/UserDashBoard/myProfile/Myprofile";
 import MyProduct from "../Pages/UserDashBoard/myProuct/MyProduct";
@@ -42,7 +42,7 @@ import ManageCupon from "../Pages/Admin/ManageCupon/ManageCupon";
             element:<Home></Home>
         },
         {
-          path:"/porductdetails",
+          path:"/productdetails/:id",
           element:<ProductDetails></ProductDetails>
         }
       ]

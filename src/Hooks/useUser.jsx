@@ -7,7 +7,7 @@ export default function useUser() {
   const axiosSecqure = useAxiosSecqure();
   const { user,loading } = useContext(AuthContext);
 
-  const {  data: users = [] } = useQuery({
+  const { refetch, data: users = [] } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
       if (!user) {
@@ -19,5 +19,5 @@ export default function useUser() {
     enabled: !loading  
   });
 
-  return [users];
+  return [users,refetch];
 }

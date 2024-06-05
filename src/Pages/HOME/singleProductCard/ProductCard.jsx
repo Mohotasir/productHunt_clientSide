@@ -26,13 +26,13 @@ export default function ProductCard({ product }) {
         />
         <div>
           <Link
-            to="/productdetails"
+            to={`/productdetails/${product._id}`}
             className="font-semibold hover:text-blue-500 hover:underline"
           >
             {product.productName}
           </Link>
           <p className="font-light text-[15px] text-gray-700">
-            {product.productDescription}
+            {product.porductDescription}
           </p>
           <div className="flex gap-4 text-sm">
             {product.tags.map((t, index) => (
