@@ -7,21 +7,15 @@ import { LiaUsersSolid } from "react-icons/lia";
 import { LuTags } from "react-icons/lu";
 import { PiChartBarDuotone } from "react-icons/pi";
 import { FaBars, FaHome } from "react-icons/fa";
-import useAxiosSecqure from "../Hooks/Axios/useAxiosSecqure";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import img from '../assets/lgo.png'
+import useSingeUser from "../Hooks/useSingleUser";
 export default function DashBoardLayout() {
-  const axiosSecqure = useAxiosSecqure();
   const [active, setActive] = useState(false);
-  const [user, setUser] = useState([]);
-  useEffect(() => {
-    axiosSecqure.get("/users").then((res) => {
-      setUser(res.data);
-    });
-  }, [user]);
+  const [SingleUser] = useSingeUser();
 
-  const isAdmin = user && user.status === "admin";
-  const isModerator = user && user.status === "moderator";
+  const isAdmin = SingleUser && SingleUser.role === "admin";
+  const isModerator = SingleUser && SingleUser.role === "moderator";
   const handleToggle = () => {
     setActive(!active);
   };
@@ -45,7 +39,7 @@ export default function DashBoardLayout() {
               <li className="w-full ">
                 <NavLink
                   className="flex items-center  gap-2"
-                  to="/dashboard/myprofile"
+                  to="/dashboard/admin/statistics"
                   style={({ isActive }) => {
                     return {
                       color: isActive && " blue",
@@ -61,7 +55,7 @@ export default function DashBoardLayout() {
               <li className="w-full   ">
                 <NavLink
                   className="flex items-center  gap-2"
-                  to="/dashboard/addproduct"
+                  to="/dashboard/admin/manageusers"
                   style={({ isActive }) => {
                     return {
                       color: isActive && " blue",
@@ -77,7 +71,7 @@ export default function DashBoardLayout() {
               <li className="w-full   ">
                 <NavLink
                   className="flex items-center  gap-2"
-                  to="/dashboard/myproduct"
+                  to="/dashboard/admin/managecupon"
                   style={({ isActive }) => {
                     return {
                       color: isActive && " blue",
