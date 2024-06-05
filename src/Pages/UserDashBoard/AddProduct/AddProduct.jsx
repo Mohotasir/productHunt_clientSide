@@ -22,6 +22,7 @@ export default function AddProduct() {
     const time = new Date().toLocaleString();
     const status = "pending";
     const upvoteCount = 0;
+    const featured = false;
     const username = user.displayName;
     const useremail = user.email;
     const userimage = user.photoURL;
@@ -31,6 +32,7 @@ export default function AddProduct() {
       porductDescription,
       link,
       tags,
+      featured,
       time,
       status,
       upvoteCount,

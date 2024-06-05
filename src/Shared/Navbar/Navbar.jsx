@@ -44,7 +44,7 @@ const Nav = () => {
     </>
   );
   return (
-    <div className=" bgClr mulish shadow-sm  fixed w-full z-10">
+    <div className=" bgClr mulish shadow-sm bg-white fixed w-full z-10">
       <div className="navbar container mx-auto py-3">
         <div className="navbar-start">
           <div className="dropdown">

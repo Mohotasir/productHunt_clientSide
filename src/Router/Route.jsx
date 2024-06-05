@@ -13,6 +13,8 @@ import DashBoardLayout from "../Layout/DashBoardLayout";
 import Myprofile from "../Pages/UserDashBoard/myProfile/Myprofile";
 import MyProduct from "../Pages/UserDashBoard/myProuct/MyProduct";
 import AddProduct from "../Pages/UserDashBoard/AddProduct/AddProduct";
+import PrivateRoute from "./PrivateRoute";
+import UpdateProduct from "../Pages/UserDashBoard/myProuct/UpdateProduct";
 
  export const router = createBrowserRouter([
     {
@@ -52,11 +54,15 @@ import AddProduct from "../Pages/UserDashBoard/AddProduct/AddProduct";
          },
          {
           path: "/dashboard/myproduct",
-          element: <MyProduct></MyProduct>
+          element: <PrivateRoute><MyProduct></MyProduct></PrivateRoute> 
          },
          {
           path: "/dashboard/addproduct",
           element:<AddProduct></AddProduct>
+         },
+         {
+          path: "/dashboard/update/:id",
+          element: <UpdateProduct></UpdateProduct>
          }
       ]
     }
