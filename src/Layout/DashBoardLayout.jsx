@@ -19,8 +19,8 @@ export default function DashBoardLayout() {
       setUser(res.data);
     });
   }, [user]);
-  const isAdmin = true;
-  //const isAdmin = user && user.status === "admin";
+
+  const isAdmin = user && user.status === "admin";
   const isModerator = user && user.status === "moderator";
   const handleToggle = () => {
     setActive(!active);

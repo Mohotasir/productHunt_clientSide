@@ -5,7 +5,7 @@ import { AuthContext } from "../../AuthProvider/AuthProdiver";
 
 export default function useSpecificProducts() {
   const axiosSecqure = useAxiosSecqure();
-  const { user } = useContext(AuthContext);
+  const { user,loading } = useContext(AuthContext);
 
   const { refetch, data: myproducts = [] } = useQuery({
     queryKey: ["myproducts", user?.email],
@@ -13,10 +13,10 @@ export default function useSpecificProducts() {
       if (!user?.email) {
         return [];
       }
-      const res = await axiosSecqure.get(`/products?email=${user.email}`);
+      const res = await axiosSecqure.get(`/products/${user?.email}`);
       return res.data;
     },
-    enabled: !!user?.email, 
+    enabled: !loading && !!user?.email, 
   });
 
   return [myproducts, refetch];
