@@ -82,7 +82,7 @@ export default function ProductReview() {
                   <p
                     onClick={() => handleFeature(product._id)}
                     className="btn btn-sm bg-blue-100"
-                    disabled ={product.featured === 'reported'}
+                    disabled ={product.featured === 'reported' || product.status === 'rejected'}
                   >
                     {product.featured === "featured" ? (
                       <span className="flex justify-center items-center gap-2">

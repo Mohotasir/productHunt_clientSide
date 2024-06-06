@@ -11,8 +11,9 @@ export default function TendingProduct() {
         <h1 className="text-xl font-semibold">Trending Products</h1>
       </div>
       <div className="flex flex-col gap-2">
-        {products.map((product) => (
-          <ProductCard key={product._id} product={product}></ProductCard>
+        {products.slice(0,9).map((product) => (
+          product.status === "accepted" &&
+           <ProductCard key={product._id} product={product}></ProductCard>
         ))}
       </div>
       <div>

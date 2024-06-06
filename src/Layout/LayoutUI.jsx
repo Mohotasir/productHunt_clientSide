@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../Shared/Navbar/Navbar";
+import Footer from "../Shared/Footer/Footer";
 
 export default function LayoutUI() {
   return (
@@ -8,6 +9,9 @@ export default function LayoutUI() {
             <Navbar></Navbar>
         </div>
         <Outlet></Outlet>
+        <div>
+           <Footer></Footer>
+        </div>
     </div>
   )
 }
