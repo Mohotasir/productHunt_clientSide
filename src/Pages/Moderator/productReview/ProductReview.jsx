@@ -8,8 +8,10 @@ import useAxiosSecqure from "../../../Hooks/Axios/useAxiosSecqure";
 export default function ProductReview() {
   const axiosSecqure = useAxiosSecqure();
   const [products, refetch] = useProducts();
-  const handleFeature = (id)=>{
-    axiosSecqure.patch(`/product/${id}`, { featured : 'featured' }).then((res) => {
+  const handleFeature = (id) => {
+    axiosSecqure
+      .patch(`/product/${id}`, { featured: "featured" })
+      .then((res) => {
         if (res.data.modifiedCount > 0) {
           refetch();
           swal({
@@ -20,33 +22,33 @@ export default function ProductReview() {
           });
         }
       });
-  }
-  const handleStatus = (id)=>{
-    axiosSecqure.patch(`/product/${id}`, { status : "accepted" }).then((res) => {
-        if (res.data.modifiedCount > 0) {
-          refetch();
-          swal({
-            title: "Success!",
-            text: `Moderator accepted this product`,
-            icon: "success",
-            button: "ok",
-          });
-        }
-      });
-  }
-  const handleReject = (id)=>{
-    axiosSecqure.patch(`/product/${id}`, { status : "rejected" }).then((res) => {
-        if (res.data.modifiedCount > 0) {
-          refetch();
-          swal({
-            title: "OPPPPS!!",
-            text: `Moderator reject this product`,
-            icon: "warning",
-            button: "ok",
-          });
-        }
-      });
-  }
+  };
+  const handleStatus = (id) => {
+    axiosSecqure.patch(`/product/${id}`, { status: "accepted" }).then((res) => {
+      if (res.data.modifiedCount > 0) {
+        refetch();
+        swal({
+          title: "Success!",
+          text: `Moderator accepted this product`,
+          icon: "success",
+          button: "ok",
+        });
+      }
+    });
+  };
+  const handleReject = (id) => {
+    axiosSecqure.patch(`/product/${id}`, { status: "rejected" }).then((res) => {
+      if (res.data.modifiedCount > 0) {
+        refetch();
+        swal({
+          title: "OPPPPS!!",
+          text: `Moderator reject this product`,
+          icon: "warning",
+          button: "ok",
+        });
+      }
+    });
+  };
 
   return (
     <div>
@@ -64,21 +66,65 @@ export default function ProductReview() {
             </tr>
           </thead>
           <tbody>
-            {products.map((product,index) => (
-              <tr className={`${product.status === 'rejected' && 'bg-red-50'}`}>
-                <th>{index+1}</th>
+            {products.map((product, index) => (
+              <tr className={`${product.status === "rejected" && "bg-red-50"}`}>
+                <th>{index + 1}</th>
                 <td className="font-semibold">{product.productName}</td>
                 <td>
-                  <Link to={`/productdetails/${product._id}`} className="btn btn-sm bg-blue-50">View Details</Link>
+                  <Link
+                    to={`/productdetails/${product._id}`}
+                    className="btn btn-sm bg-blue-50"
+                  >
+                    View Details
+                  </Link>
                 </td>
                 <td>
-                  <p onClick={()=>handleFeature(product._id)} className="btn btn-sm bg-blue-100">{product.featured === 'featured' ? <p className="flex justify-center items-center gap-2"><span className="text-xl"><IoMdCheckmarkCircleOutline /></span> Featured</p>  :  'Make Featured'}</p>
+                  <p
+                    onClick={() => handleFeature(product._id)}
+                    className="btn btn-sm bg-blue-100"
+                    disabled ={product.featured === 'reported'}
+                  >
+                    {product.featured === "featured" ? (
+                      <span className="flex justify-center items-center gap-2">
+                        <span className="text-xl">
+                          <IoMdCheckmarkCircleOutline />
+                        </span>
+                        Featured
+                      </span>
+                    ) : product.featured === "reported" ? (
+                      "Reported"
+                    ) : (
+                      "Make Featured"
+                    )}
+                  </p>
                 </td>
                 <td>
-                  <button disabled={product.status === 'accepted' || product.status === 'rejected'} onClick={()=>handleStatus(product._id)} className={`btn btn-sm bg-blue-200`}>{product.status}</button>
+                  <button
+                    disabled={
+                      product.status === "accepted" ||
+                      product.status === "rejected"
+                    }
+                    onClick={() => handleStatus(product._id)}
+                    className={`btn btn-sm bg-blue-200`}
+                  >
+                    {product.status}
+                  </button>
                 </td>
                 <td>
-                  <button disabled={product.status === 'accepted' || product.status === 'rejected'} onClick={()=>handleReject(product._id)} className="btn btn-sm  text-red-600  bg-red-200 hover:bg-red-400">{product.status === 'rejected'? "rejected" : <MdDeleteForever />}</button>
+                  <button
+                    disabled={
+                      product.status === "accepted" ||
+                      product.status === "rejected"
+                    }
+                    onClick={() => handleReject(product._id)}
+                    className="btn btn-sm  text-red-600  bg-red-200 hover:bg-red-400"
+                  >
+                    {product.status === "rejected" ? (
+                      "rejected"
+                    ) : (
+                      <MdDeleteForever />
+                    )}
+                  </button>
                 </td>
               </tr>
             ))}

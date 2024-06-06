@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { MdOutlineStar } from "react-icons/md";
 import { AuthContext } from "../../AuthProvider/AuthProdiver";
 import swal from "sweetalert";
+import useAxiosSecqure from "../../Hooks/Axios/useAxiosSecqure";
 
 export default function ProductDetails() {
   const [product, setProduct] = useState([]);
@@ -11,6 +12,7 @@ export default function ProductDetails() {
   const { user } = useContext(AuthContext);
   const { id } = useParams();
   const axiosPublic = useAxiosPublic();
+  const axiosSecqure = useAxiosSecqure();
   useEffect(() => {
     axiosPublic.get(`/product/${id}`).then((res) => {
       setProduct(res.data);
@@ -45,7 +47,18 @@ export default function ProductDetails() {
       setRev(res.data);
     });
   }, [id]);
-
+  const handleReport = (id)=>{
+    axiosSecqure.patch(`/product/${id}`, { featured : 'reported' }).then((res) => {
+      if (res.data.modifiedCount > 0) {
+        swal({
+          title: "Reported!!!!",
+          text: `Your report is counted`,
+          icon: "warning",
+          button: "ok",
+        });
+      }
+    });
+  }
   return (
     <div className="mulish">
       <div className="p-4  text-center text-blue-600 bg-blue-50">
@@ -90,7 +103,7 @@ export default function ProductDetails() {
             >
               Visit Site
             </a>
-            <p className=" font-bold bg-red-200 btn btn-sm hover:bg-red-300">
+            <p onClick={()=>handleReport(id)} className=" font-bold bg-red-200 btn btn-sm hover:bg-red-300">
               Report
             </p>
           </div>
