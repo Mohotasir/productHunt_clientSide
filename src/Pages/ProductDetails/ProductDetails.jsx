@@ -86,7 +86,7 @@ export default function ProductDetails() {
             </p>
             <a
               className="btn popin btn-outline border-blue-100 btn-sm  text-blue-800 font-bold  hover:bg-blue-800"
-              href={product.links}
+              href={product.link}
             >
               Visit Site
             </a>
