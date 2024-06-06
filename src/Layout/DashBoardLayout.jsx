@@ -6,9 +6,11 @@ import { ImCart } from "react-icons/im";
 import { LiaUsersSolid } from "react-icons/lia";
 import { LuTags } from "react-icons/lu";
 import { PiChartBarDuotone } from "react-icons/pi";
+import { TbBrandProducthunt } from "react-icons/tb";
+import { MdOutlineReportProblem } from "react-icons/md";
 import { FaBars, FaHome } from "react-icons/fa";
 import { useState } from "react";
-import img from '../assets/lgo.png'
+import img from "../assets/lgo.png";
 import useSingeUser from "../Hooks/useSingleUser";
 export default function DashBoardLayout() {
   const [active, setActive] = useState(false);
@@ -29,7 +31,9 @@ export default function DashBoardLayout() {
       </div>
       <div className="flex gap-4">
         <div
-          className={`z-10 px-4 md:px-0  md:fixed overflow-x-hidden absolute inset-y-0 left-0 transform md:flex flex-col lg:w-2/12 bgprimary min-h-screen ${active && '-translate-x-full'} md:translate-x-0 transition duration-200 ease-in-out`}
+          className={`z-10 px-4 md:px-0  md:fixed overflow-x-hidden absolute inset-y-0 left-0 transform md:flex flex-col lg:w-2/12 bgprimary min-h-screen ${
+            active && "-translate-x-full"
+          } md:translate-x-0 transition duration-200 ease-in-out`}
         >
           <div className="ml-6 pt-6 md:pt-12 text-xl">
             <h1 className="font-semibold poppin subclr"> DASHBOARD</h1>
@@ -91,7 +95,7 @@ export default function DashBoardLayout() {
               <li className="w-full ">
                 <NavLink
                   className="flex items-center  gap-2"
-                  to="/dashboard/myprofile"
+                  to="/dashboard/productreview"
                   style={({ isActive }) => {
                     return {
                       color: isActive && " blue",
@@ -99,15 +103,15 @@ export default function DashBoardLayout() {
                   }}
                 >
                   <span className="text-2xl">
-                    <CgProfile />
+                  <TbBrandProducthunt />
                   </span>{" "}
-                  My Profile
+                  Product Review
                 </NavLink>
               </li>
               <li className="w-full   ">
                 <NavLink
                   className="flex items-center  gap-2"
-                  to="/dashboard/addproduct"
+                  to="/dashboard/reportedcontent"
                   style={({ isActive }) => {
                     return {
                       color: isActive && " blue",
@@ -115,25 +119,9 @@ export default function DashBoardLayout() {
                   }}
                 >
                   <span className="text-2xl">
-                    <IoMdAddCircleOutline />
+                  <MdOutlineReportProblem />
                   </span>{" "}
-                  Add Product
-                </NavLink>
-              </li>
-              <li className="w-full   ">
-                <NavLink
-                  className="flex items-center  gap-2"
-                  to="/dashboard/myproduct"
-                  style={({ isActive }) => {
-                    return {
-                      color: isActive && " blue",
-                    };
-                  }}
-                >
-                  <span className="text-2xl">
-                    <MdProductionQuantityLimits />
-                  </span>{" "}
-                  My Product
+                  Reported Content
                 </NavLink>
               </li>
             </ul>

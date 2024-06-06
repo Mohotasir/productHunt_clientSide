@@ -43,7 +43,7 @@ import ManageCupon from "../Pages/Admin/ManageCupon/ManageCupon";
         },
         {
           path:"/productdetails/:id",
-          element:<ProductDetails></ProductDetails>
+          element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute> 
         }
       ]
     },
