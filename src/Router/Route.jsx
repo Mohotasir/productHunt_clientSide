@@ -18,6 +18,8 @@ import UpdateProduct from "../Pages/UserDashBoard/myProuct/UpdateProduct";
 import Statistics from "../Pages/Admin/Statistics/Statistics";
 import ManageUser from "../Pages/Admin/Mangauser/ManageUser";
 import ManageCupon from "../Pages/Admin/ManageCupon/ManageCupon";
+import ProductReview from "../Pages/Moderator/productReview/ProductReview";
+import ReportedContent from "../Pages/Moderator/ReportedContent/ReportedContent";
 
  export const router = createBrowserRouter([
     {
@@ -78,6 +80,14 @@ import ManageCupon from "../Pages/Admin/ManageCupon/ManageCupon";
          {
           path: "/dashboard/admin/managecupon",
           element: <ManageCupon></ManageCupon>
+         },
+         {
+           path: "/dashboard/productreview",
+           element: <ProductReview></ProductReview>
+         },
+         {
+           path: "/dashboard/reportedcontent",
+           element: <ReportedContent></ReportedContent>
          }
       ]
     }
