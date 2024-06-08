@@ -4,8 +4,8 @@ import Footer from "../Shared/Footer/Footer";
 
 export default function LayoutUI() {
   return (
-    <div>
-        <div className="h-[72px]">
+    <div className="">
+        <div className="h-[88px]">
             <Navbar></Navbar>
         </div>
         <Outlet></Outlet>

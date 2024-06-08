@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProdiver";
-import logo from "../../assets/lgo.png";
+import logo from "../../assets/logo.png";
 const Nav = () => {
   const { user, logOut } = useContext(AuthContext);
   const [dropdown, setDropDown] = useState(false);
@@ -44,8 +44,8 @@ const Nav = () => {
     </>
   );
   return (
-    <div className=" bgClr mulish shadow-sm bg-white fixed w-full z-10">
-      <div className="navbar container mx-auto py-3">
+    <div className=" bgClr mulish  shadow-inner  shadow-slate-100 py-2 bg-slate-50 fixed w-full z-10">
+      <div className="navbar max-w-screen-2xl md:px-12 mx-auto py-3">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

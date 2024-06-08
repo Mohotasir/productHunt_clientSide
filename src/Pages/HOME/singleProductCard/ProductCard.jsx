@@ -18,7 +18,7 @@ export default function ProductCard({ product }) {
 
   return (
     <div className="border mulish flex items-center justify-between px-6 py-3 rounded-sm border-gray-100 hover:bg-gray-50">
-      <div className="flex gap-3 justify-center items-center">
+      <div className="flex gap-3  items-center lg:w-10/12">
         <img
           className="w-10 md:w-[80px] h-10 md:h-[70px] rounded-md"
           src={product.productImage}
@@ -47,7 +47,7 @@ export default function ProductCard({ product }) {
           </div>
         </div>
       </div>
-      <div className="votebtn">
+      <div className="votebtn text-right lg:w-2/12">
         <button disabled={disabled} className="btn bg-white border">
           <BiSolidUpArrow />
           {product.upvoteCount}

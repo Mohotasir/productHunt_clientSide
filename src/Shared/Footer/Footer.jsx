@@ -1,15 +1,22 @@
-import logo from '../../assets/logo.png'
+import { Link } from "react-router-dom";
+import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
+import logo from "../../assets/logo.png";
 export default function Footer() {
   return (
-      <footer className="footer p-10 mt-12 popin bg-blue-950  text-neutral-content">
-        <aside>
-           <img className='w-48' src={logo} alt="" />
+    <div className="bg-blue-950  pt-6 md:pt-16 mt-12 popin">
+      <footer className="footer  flex flex-col md:flex-row justify-between items-center max-w-screen-xl mx-auto  text-neutral-content">
+        <aside className="">
+          <img className="w-48 -ml-6" src={logo} alt="" />
           <p>
-            ACME Industries Ltd.
+            TrendZ company Ltd.
             <br />
-            Providing reliable tech since 1992
+            Hunt Your Product
           </p>
         </aside>
+        <div className=" font-semibold text-gray-400 flex flex-col gap-4">
+            <Link className="flex justify-center items-center gap-1 hover:text-blue-200" to="/"><span className="text-2xl"><MdOutlineKeyboardDoubleArrowRight /></span> Home</Link>
+            <Link className="flex justify-center items-center gap-1 hover:text-blue-200" to="/allproducts"><span className="text-2xl"><MdOutlineKeyboardDoubleArrowRight /></span> Product</Link>
+        </div>
         <nav>
           <h6 className="footer-title">Social</h6>
           <div className="grid grid-flow-col gap-4">
@@ -49,5 +56,12 @@ export default function Footer() {
           </div>
         </nav>
       </footer>
+      <div className="divider"></div>
+      <footer className="footer p-6 text-gray-400 footer-center  bg-blue-950 ">
+        <aside>
+          <p>Copyright © 2024 - All right reserved by TrendZ</p>
+        </aside>
+      </footer>
+    </div>
   );
 }

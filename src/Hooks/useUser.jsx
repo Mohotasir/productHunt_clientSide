@@ -13,7 +13,7 @@ export default function useUser() {
       if (!user) {
         return [];
       }
-      const res = await axiosSecqure.get(`/users`);
+      const res = await axiosSecqure.get("/users");
       return res.data;
     },
     enabled: !loading  

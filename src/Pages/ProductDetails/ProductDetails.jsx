@@ -13,6 +13,15 @@ export default function ProductDetails() {
   const { id } = useParams();
   const axiosPublic = useAxiosPublic();
   const axiosSecqure = useAxiosSecqure();
+  const [disabled, setDisabled] = useState(false);
+
+  useEffect(() => {
+    if (user && product.useremail === user.email) {
+      setDisabled(true);
+    } else {
+      setDisabled(false);
+    }
+  }, [user, product.useremail]);
   useEffect(() => {
     axiosPublic.get(`/product/${id}`).then((res) => {
       setProduct(res.data);
@@ -93,7 +102,7 @@ export default function ProductDetails() {
             </div>
           </div>
           <div className="flex flex-col gap-2">
-            <p className=" popin bg-blue-100  btn btn-sm rounded-lg font-extrabold">
+            <p disabled={disabled} className=" popin bg-blue-100  btn btn-sm rounded-lg font-extrabold">
               UPVOTE{" "}
               <span className=" font-bold text-xl">{product.upvoteCount}</span>
             </p>
@@ -103,7 +112,7 @@ export default function ProductDetails() {
             >
               Visit Site
             </a>
-            <p onClick={()=>handleReport(id)} className=" font-bold bg-red-200 btn btn-sm hover:bg-red-300">
+            <p  disabled={disabled} onClick={()=>handleReport(id)} className=" font-bold bg-red-200 btn btn-sm hover:bg-red-300">
               Report
             </p>
           </div>
