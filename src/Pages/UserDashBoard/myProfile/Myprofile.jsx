@@ -36,16 +36,14 @@ export default function Myprofile() {
             </div>
           </div>
           <div></div>
-          <Link to="/dashboard/payment">
             <div className="text-center">
               <p className="text-lg text-gray-500 font-semibold">
                 Subscribe to Get Membership
               </p>
-              <Link className="btn my-2 font-bold text-xl bg-blue-300">
+              {/* <Link to="/dashboard/payment" className="btn my-2 font-bold text-xl bg-blue-300">
                 $<span>300</span>{" "}
-              </Link>
+              </Link> */}
             </div>
-          </Link>
         </div>
       )}
     </div>

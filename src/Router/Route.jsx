@@ -20,6 +20,7 @@ import ManageUser from "../Pages/Admin/Mangauser/ManageUser";
 import ManageCupon from "../Pages/Admin/ManageCupon/ManageCupon";
 import ProductReview from "../Pages/Moderator/productReview/ProductReview";
 import ReportedContent from "../Pages/Moderator/ReportedContent/ReportedContent";
+import Payment from "../Pages/UserDashBoard/Payment/Payment";
 
  export const router = createBrowserRouter([
     {
@@ -53,6 +54,11 @@ import ReportedContent from "../Pages/Moderator/ReportedContent/ReportedContent"
       path:"/dashboard",
       element:<PrivateRoute><DashBoardLayout></DashBoardLayout></PrivateRoute> ,
       children:[
+        {
+          path: "/dashboard/payment",
+          element:<Payment></Payment>
+
+        },
          {
            path:"/dashboard/myprofile",
            element:<Myprofile></Myprofile>
