@@ -1,9 +1,8 @@
-
 import { Link } from "react-router-dom";
 import useSingeUser from "../../../Hooks/useSingleUser";
 
 export default function Myprofile() {
-   const [SingleUser] = useSingeUser();
+  const [SingleUser] = useSingeUser();
   // useEffect(() => {
   //   if (user?.email && !loading) {
   //     axiosSecqure
@@ -14,9 +13,9 @@ export default function Myprofile() {
   //       .catch((err) => {
   //         console.error("Error fetching user:", err);
   //       });
-        
+
   //   }
-    
+
   // }, [user]);
   //console.log(SingleUser);
   return (
@@ -37,14 +36,16 @@ export default function Myprofile() {
             </div>
           </div>
           <div></div>
-          <div className="text-center">
-            <p className="text-lg text-gray-500 font-semibold">
-              Subscribe to Get Membership
-            </p>
-            <Link className="btn my-2 font-bold text-xl bg-blue-300">
-              $<span>300</span>{" "}
-            </Link>
-          </div>
+          <Link to="/dashboard/payment">
+            <div className="text-center">
+              <p className="text-lg text-gray-500 font-semibold">
+                Subscribe to Get Membership
+              </p>
+              <Link className="btn my-2 font-bold text-xl bg-blue-300">
+                $<span>300</span>{" "}
+              </Link>
+            </div>
+          </Link>
         </div>
       )}
     </div>

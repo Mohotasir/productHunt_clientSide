@@ -10,7 +10,7 @@ export default function FeaturedProduct() {
   //   axiosPublic.get("/products").then((res) => {
   //     setProducts(res.data);
   //   });
-  const [products] = useProducts();
+  const [products ,refetch] = useProducts();
   console.log(products)
   return (
     <div className="">
@@ -20,7 +20,7 @@ export default function FeaturedProduct() {
       <div className="flex flex-col gap-2 bg-gray-50 p-2 rounded-sm">
         { products.slice(0,6).map((product) => (
           product.featured === 'featured' && product.status === 'accepted' &&
-            <ProductCard key={product._id} product={product}></ProductCard>
+            <ProductCard key={product._id} refetch={refetch} product={product}></ProductCard>
         ))}
       </div>
       <div>
