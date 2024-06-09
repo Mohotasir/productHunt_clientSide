@@ -1,3 +1,4 @@
+import CouponSlider from "./Coupon/CouponSlider";
 import FeaturedProduct from "./FeaturedProduct/FeaturedProduct";
 import Slider from "./Slider/Slider";
 import TendingProduct from "./TrendingProduct/TendingProduct";
@@ -14,6 +15,7 @@ export default function Home() {
           <FeaturedProduct></FeaturedProduct>
         </div>
       </div>
+      <CouponSlider></CouponSlider>
     </div>
   );
 }

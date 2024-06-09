@@ -6,7 +6,7 @@ import { AuthContext } from "../../../AuthProvider/AuthProdiver";
 import useAxiosSecqure from "../../../Hooks/Axios/useAxiosSecqure";
 import swal from "sweetalert";
 
-export default function ProductCard({ product ,refetch }) {
+export default function ProductCard({ product, refetch }) {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
   const [upvoteCount, setUpvoteCount] = useState(product.upvoteCount);
@@ -66,12 +66,25 @@ export default function ProductCard({ product ,refetch }) {
   };
   return (
     <div className="border mulish flex items-center justify-between px-6 py-3 rounded-sm border-gray-100 hover:bg-gray-50">
-      <div className="flex gap-3  items-center lg:w-10/12">
-        <img
-          className="w-10 md:w-[80px] h-10 md:h-[70px] rounded-md"
-          src={product.productImage}
-          alt={product.productName}
-        />
+      <div className="flex w-full flex-col md:flex-row gap-3  md:items-center lg:w-10/12">
+        <div className="flex justify-between  ">
+          <img
+            className="w-16  md:w-[80px] h-12 md:h-[70px] rounded-md"
+            src={product.productImage}
+            alt={product.productName}
+          />
+          <div className="md:hidden votebtn text-right ">
+            <button
+              onClick={() => handleVote(product._id)}
+              disabled={disabled}
+              className="btn bg-white border"
+            >
+              <BiSolidUpArrow />
+              {product.upvoteCount}
+            </button>
+          </div>
+        </div>
+
         <div>
           <Link
             to={`/productdetails/${product._id}`}
@@ -95,7 +108,7 @@ export default function ProductCard({ product ,refetch }) {
           </div>
         </div>
       </div>
-      <div className="votebtn text-right lg:w-2/12">
+      <div className=" hidden md:flex votebtn text-right lg:w-2/12">
         <button
           onClick={() => handleVote(product._id)}
           disabled={disabled}
