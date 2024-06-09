@@ -69,8 +69,8 @@ export default function Statistics() {
             </p>
           </div>
         </div>
-        <div className="border">
-          <PieChart className="border" width={400} height={400}>
+        <div className=" text-center flex items-center justify-center">
+          <PieChart className="" width={400} height={400}>
             <Pie
               data={datas}
               cx="50%"
