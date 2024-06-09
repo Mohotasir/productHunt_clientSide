@@ -9,10 +9,11 @@ import useCoupon from "../../../Hooks/Coupon/useCoupon";
 
 const CouponSlider = () => {
   const [coupon, refetch] = useCoupon();
+   
   return (
     <div className="bg-cover bgClr bg-no-repeat ">
       <div className="lg:h-[50vh] container py-6 md:py-0 mx-auto  items-center justify-center md:flex-row gap-6  ">
-        <div className=" m-8 max-w-screen-lg mx-auto mulish ">
+        <div className=" m-8 max-w-screen-xl mx-auto mulish ">
           <Swiper
             spaceBetween={30}
             centeredSlides={true}
@@ -22,23 +23,25 @@ const CouponSlider = () => {
             }}
            
             breakpoints={{
-              // Configure different settings for different screen sizes
               640: {
-                  slidesPerView: 1, // Number of slides to show on smaller screens (e.g., mobile)
+                  slidesPerView: 1, 
               },
               768: {
-                  slidesPerView: 2, // Number of slides to show on medium screens (e.g., tablets)
+                  slidesPerView: 2, 
               },
               1024: {
-                  slidesPerView: 3, // Number of slides to show on larger screens (e.g., desktops)
+                  slidesPerView: 2, 
               },
           }}
             modules={[Autoplay]}
             className="mySwiper  rounded-2xl  h-[35vh]  "
           >
             { coupon && coupon.map((cpn) => (
-              <SwiperSlide className="bg-cover rounded-lg  p-12 bg-slate-50   bg-no-repeat">
-                <div className="w-full">
+              <SwiperSlide className="bg-cover rounded-lg flex flex-col  bg-slate-50   bg-no-repeat">
+                <div className="bg-blue-100 py-3 w-full rounded-t-lg text-center ">
+                    <h1 className="text-sm font-bold ">valid till : {cpn.date}</h1>
+                </div>
+                <div className="w-full px-12 pb-10 pt-4">
                   <h1 className="text-4xl text-blue-900 lg:text-5xl font-bold ">
                     {cpn.amount}% <span className="text-lg ">Discount</span>
                   </h1>

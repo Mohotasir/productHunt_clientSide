@@ -49,7 +49,7 @@ export default function Statistics() {
   return (
     data && (
       <div className=" max-w-screen-lg poppin mx-auto text-center my-12">
-        <div className="flex justify-between">
+        <div className="flex mx-6 md:mx-0 gap-2 flex-col md:flex-row justify-between">
           <div className="border rounded-xl p-6 bg-purple-300">
             <h1 className="text-3xl font-bold text-gray-600">TOTAL USERS </h1>
             <p className="font-bold text-3xl md:text-4xl  lg:text-7xl">
