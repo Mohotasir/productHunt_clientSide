@@ -21,7 +21,8 @@
     "react-router-dom": "^6.23.1",
     "react-tag-input-component": "^2.0.2",
     "recharts": "^2.12.7",
-    "sweetalert": "^2.1.2"
+    "sweetalert": "^2.1.2",
+    "swiper": "^11.1.4"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
