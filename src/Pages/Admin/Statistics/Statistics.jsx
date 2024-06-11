@@ -5,6 +5,7 @@ import { PieChart, Pie, Sector, Cell, ResponsiveContainer, Legend } from "rechar
 export default function Statistics() {
   const [data, setData] = useState();
   const axiosSecqure = useAxiosSecqure();
+ 
   useEffect(() => {
     axiosSecqure.get("/admin-stat").then((res) => {
       setData(res.data);

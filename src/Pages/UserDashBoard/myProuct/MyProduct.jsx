@@ -17,7 +17,7 @@ export default function MyProduct() {
 
     if (willDelete) {
       axiosSecqure
-        .delete(`products/${_id}`)
+        .delete(`product/${_id}`)
         .then((res) => {
           refetch();
           if (res.data.deletedCount > 0) {
