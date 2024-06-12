@@ -31,153 +31,155 @@ export default function DashBoardLayout() {
       </div>
       <div className="flex gap-4">
         <div
-          className={`z-10 px-4 md:px-0  md:fixed overflow-x-hidden absolute inset-y-0 left-0 transform md:flex flex-col lg:w-2/12 bgprimary min-h-screen ${
+          className={`z-10 my-16 md:my-0 px-6 md:px-0  md:fixed overflow-x-hidden absolute inset-y-0 left-0 transform md:flex flex-col lg:w-2/12 bgprimary min-h-screen ${
             active && "-translate-x-full"
           } md:translate-x-0 transition duration-200 ease-in-out`}
         >
-          <div className="ml-6 pt-6 md:pt-12 text-xl">
+          <div className="ml-6 mt-12 hidden lg:flex text-xl">
             <h1 className="font-semibold poppin subclr"> DASHBOARD</h1>
           </div>
-          {isAdmin && (
-            <ul className="flex flex-col gap-6 pt-12 lg:pt-24  ml-6">
-              <li className="w-full">
-                <NavLink
-                  className="flex items-center  gap-2"
-                  to="/dashboard/admin/statistics"
-                  style={({ isActive }) => {
-                    return {
-                      color: isActive && " blue",
-                    };
-                  }}
-                >
-                  <span className="text-2xl">
-                    <PiChartBarDuotone />
-                  </span>{" "}
-                  Statistics
-                </NavLink>
-              </li>
-              <li className="w-full   ">
-                <NavLink
-                  className="flex items-center  gap-2"
-                  to="/dashboard/admin/manageusers"
-                  style={({ isActive }) => {
-                    return {
-                      color: isActive && " blue",
-                    };
-                  }}
-                >
-                  <span className="text-2xl">
-                    <LiaUsersSolid />
-                  </span>{" "}
-                  Manage Users
-                </NavLink>
-              </li>
-              <li className="w-full   ">
-                <NavLink
-                  className="flex items-center  gap-2"
-                  to="/dashboard/admin/managecupon"
-                  style={({ isActive }) => {
-                    return {
-                      color: isActive && " blue",
-                    };
-                  }}
-                >
-                  <span className="text-2xl">
-                    <LuTags />
-                  </span>{" "}
-                  Manage Cupon
-                </NavLink>
-              </li>
-            </ul>
-          )}
-          {!isAdmin && isModerator && (
-            <ul className="flex flex-col gap-6 lg:pt-24  ml-6  ">
-              <li className="w-full ">
-                <NavLink
-                  className="flex items-center  gap-2"
-                  to="/dashboard/productreview"
-                  style={({ isActive }) => {
-                    return {
-                      color: isActive && " blue",
-                    };
-                  }}
-                >
-                  <span className="text-2xl">
-                  <TbBrandProducthunt />
-                  </span>{" "}
-                  Product Review
-                </NavLink>
-              </li>
-              <li className="w-full   ">
-                <NavLink
-                  className="flex items-center  gap-2"
-                  to="/dashboard/reportedcontent"
-                  style={({ isActive }) => {
-                    return {
-                      color: isActive && " blue",
-                    };
-                  }}
-                >
-                  <span className="text-2xl">
-                  <MdOutlineReportProblem />
-                  </span>{" "}
-                  Reported Content
-                </NavLink>
-              </li>
-            </ul>
-          )}
-          {!isAdmin && !isModerator && (
-            <ul className="flex flex-col gap-6 lg:pt-24  ml-6  ">
-              <li className="w-full ">
-                <NavLink
-                  className="flex items-center  gap-2"
-                  to="/dashboard/myprofile"
-                  style={({ isActive }) => {
-                    return {
-                      color: isActive && " blue",
-                    };
-                  }}
-                >
-                  <span className="text-2xl">
-                    <CgProfile />
-                  </span>{" "}
-                  My Profile
-                </NavLink>
-              </li>
-              <li className="w-full   ">
-                <NavLink
-                  className="flex items-center  gap-2"
-                  to="/dashboard/addproduct"
-                  style={({ isActive }) => {
-                    return {
-                      color: isActive && " blue",
-                    };
-                  }}
-                >
-                  <span className="text-2xl">
-                    <IoMdAddCircleOutline />
-                  </span>{" "}
-                  Add Product
-                </NavLink>
-              </li>
-              <li className="w-full   ">
-                <NavLink
-                  className="flex items-center  gap-2"
-                  to="/dashboard/myproduct"
-                  style={({ isActive }) => {
-                    return {
-                      color: isActive && " blue",
-                    };
-                  }}
-                >
-                  <span className="text-2xl">
-                    <MdProductionQuantityLimits />
-                  </span>{" "}
-                  My Product
-                </NavLink>
-              </li>
-            </ul>
-          )}
+          <div className="flex flex-col justify-center  h-[40vh]">
+            {isAdmin && (
+              <ul className="flex flex-col gap-6 pt-12  lg:pt-24  ml-6">
+                <li className="w-full">
+                  <NavLink
+                    className="flex items-center  gap-2"
+                    to="/dashboard/admin/statistics"
+                    style={({ isActive }) => {
+                      return {
+                        color: isActive && " blue",
+                      };
+                    }}
+                  >
+                    <span className="text-2xl">
+                      <PiChartBarDuotone />
+                    </span>{" "}
+                    Statistics
+                  </NavLink>
+                </li>
+                <li className="w-full   ">
+                  <NavLink
+                    className="flex items-center  gap-2"
+                    to="/dashboard/admin/manageusers"
+                    style={({ isActive }) => {
+                      return {
+                        color: isActive && " blue",
+                      };
+                    }}
+                  >
+                    <span className="text-2xl">
+                      <LiaUsersSolid />
+                    </span>{" "}
+                    Manage Users
+                  </NavLink>
+                </li>
+                <li className="w-full   ">
+                  <NavLink
+                    className="flex items-center  gap-2"
+                    to="/dashboard/admin/managecupon"
+                    style={({ isActive }) => {
+                      return {
+                        color: isActive && " blue",
+                      };
+                    }}
+                  >
+                    <span className="text-2xl">
+                      <LuTags />
+                    </span>{" "}
+                    Manage Cupon
+                  </NavLink>
+                </li>
+              </ul>
+            )}
+            {!isAdmin && isModerator && (
+              <ul className="flex flex-col gap-6 lg:pt-24  ml-6  ">
+                <li className="w-full ">
+                  <NavLink
+                    className="flex items-center  gap-2"
+                    to="/dashboard/productreview"
+                    style={({ isActive }) => {
+                      return {
+                        color: isActive && " blue",
+                      };
+                    }}
+                  >
+                    <span className="text-2xl">
+                      <TbBrandProducthunt />
+                    </span>{" "}
+                    Product Review
+                  </NavLink>
+                </li>
+                <li className="w-full   ">
+                  <NavLink
+                    className="flex items-center  gap-2"
+                    to="/dashboard/reportedcontent"
+                    style={({ isActive }) => {
+                      return {
+                        color: isActive && " blue",
+                      };
+                    }}
+                  >
+                    <span className="text-2xl">
+                      <MdOutlineReportProblem />
+                    </span>{" "}
+                    Reported Content
+                  </NavLink>
+                </li>
+              </ul>
+            )}
+            {!isAdmin && !isModerator && (
+              <ul className="flex flex-col gap-6 lg:pt-24  ml-6  ">
+                <li className="w-full ">
+                  <NavLink
+                    className="flex items-center  gap-2"
+                    to="/dashboard/myprofile"
+                    style={({ isActive }) => {
+                      return {
+                        color: isActive && " blue",
+                      };
+                    }}
+                  >
+                    <span className="text-2xl">
+                      <CgProfile />
+                    </span>{" "}
+                    My Profile
+                  </NavLink>
+                </li>
+                <li className="w-full   ">
+                  <NavLink
+                    className="flex items-center  gap-2"
+                    to="/dashboard/addproduct"
+                    style={({ isActive }) => {
+                      return {
+                        color: isActive && " blue",
+                      };
+                    }}
+                  >
+                    <span className="text-2xl">
+                      <IoMdAddCircleOutline />
+                    </span>{" "}
+                    Add Product
+                  </NavLink>
+                </li>
+                <li className="w-full   ">
+                  <NavLink
+                    className="flex items-center  gap-2"
+                    to="/dashboard/myproduct"
+                    style={({ isActive }) => {
+                      return {
+                        color: isActive && " blue",
+                      };
+                    }}
+                  >
+                    <span className="text-2xl">
+                      <MdProductionQuantityLimits />
+                    </span>{" "}
+                    My Product
+                  </NavLink>
+                </li>
+              </ul>
+            )}
+          </div>
 
           {/*------------------------- divider--------------------------------- */}
           <div className="divider px-6"></div>

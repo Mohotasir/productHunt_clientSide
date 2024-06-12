@@ -4,7 +4,7 @@ import logo from "../../assets/logo.png";
 export default function Footer() {
   return (
     <div className="bg-blue-950  pt-6 md:pt-16 mt-12 popin">
-      <footer className="footer  flex flex-col md:flex-row justify-between items-center max-w-screen-xl mx-auto  text-neutral-content">
+      <footer className="footer  flex flex-col md:flex-row justify-between items-center md:max-w-screen-md max-w-screen-xl mx-auto  text-neutral-content">
         <aside className="">
           <img className="w-48 -ml-6" src={logo} alt="" />
           <p>
