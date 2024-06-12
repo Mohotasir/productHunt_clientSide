@@ -68,7 +68,7 @@ export default function Allproducts() {
       <div className="text-center flex flex-col items-center justify-center bg-slate-50 py-2 min-h-20 lg:min-h-32">
         <div className="lg:w-[800px]">
           <input
-            className="text-xl md:w-[60%] border rounded-l-lg outline-none p-2 md:p-3"
+            className="text-xl w-[50%] md:w-[60%] border rounded-l-lg outline-none p-2 md:p-3"
             type="text"
             name="search"
             placeholder="Search...."
