@@ -70,6 +70,7 @@ export default function CheckOutForm({price}) {
       setErr("");
       if (paymentIntent.status === "succeeded") {
         swal("payment Successfull !!");
+        
       }
     }
   };
