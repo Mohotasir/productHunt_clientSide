@@ -1,6 +1,6 @@
 Website Name: Trendz ( Product Hunt)
 ----------------------------------------
-Live Link: https://phunt-9a498.firebaseapp.com
+Live Link: https://phunt-9a498.web.app
 ---------------------------------------------------
 ## Features
 
