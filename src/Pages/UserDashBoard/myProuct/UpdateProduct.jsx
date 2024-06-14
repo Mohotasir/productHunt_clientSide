@@ -96,7 +96,7 @@ export default function UpdateProduct() {
           <div>
             <h1 className="text-sm mb-2">Add Tags</h1>
             <TagsInput
-                value={data.tags ? data.tags.map(tag => (tag )) : []}
+                value={data.tags}
               onChange={setSelected}
               name="fruits"
               placeHolder="enter tags"

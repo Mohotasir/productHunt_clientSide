@@ -64,6 +64,7 @@ export default function ProductCard({ product, refetch }) {
       navigate("/login");
     }
   };
+  console.log(product)
   return (
     <div className="border mulish flex items-center justify-between px-6 py-3 rounded-sm border-gray-100 hover:bg-gray-50">
       <div className="flex w-full flex-col md:flex-row gap-3  md:items-center lg:w-10/12">
@@ -95,8 +96,8 @@ export default function ProductCard({ product, refetch }) {
           <p className="font-light text-[15px] text-gray-700">
             {product.porductDescription}
           </p>
-          <div className="flex gap-4 text-sm">
-            {product.tags.map((t, index) => (
+          <div className="flex gap-4 text-sm">       
+            { product.tags && product.tags.map((t, index) => (
               <p
                 key={index}
                 className="text-xs flex gap-2 justify-center items-center font-semibold text-gray-500 hover:underline"
