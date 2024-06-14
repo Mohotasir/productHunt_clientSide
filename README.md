@@ -1,8 +1,12 @@
-# React + Vite
+Website Name: Trendz ( Product Hunt)
+----------------------------------------
+Live Link: https://phunt-9a498.firebaseapp.com
+---------------------------------------------------
+## Features
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. **User Roles**: Supports different user roles including Normal Users, Moderators, and Admins, each with specific permissions.
+2. **Product Management**: Users can submit new products, upvote products, and post reviews. Moderators can approve/reject products and handle reports.
+3. **JWT Authentication**: Secure user authentication using JSON Web Tokens (JWT).
+4. **Pagination and Search**: Efficient product browsing with pagination and search functionality based on tags.
+5. **Environment Variables**: Sensitive information such as Firebase config keys and MongoDB credentials are stored securely using environment variables.
+6. **Payment Method**: User can make payment on this website.
