@@ -2,13 +2,7 @@
 # Trendz ( Product Hunt)
 
 TrendZ is a dynamic web application designed for tech enthusiasts to discover, share, and vote on the latest tech products. It provides a platform where users can register, submit their products, and engage with other tech innovations by upvoting their favorites. The application features admin and moderator dashboards for effective management.
-
-
-
-
-
-
-
+## Live Link: https://phunt-9a498.web.app/
 
 ## Features
 
