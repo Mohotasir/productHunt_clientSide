@@ -24,3 +24,7 @@
 .bgprimary{
     background-color: #e1f2ff;
 }
+.transition-all {
+    transition: all 1s ease;
+  }
+  

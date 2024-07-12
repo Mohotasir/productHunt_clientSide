@@ -1,18 +1,37 @@
 import { Link, NavLink } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProdiver";
 import logo from "../../assets/logo.png";
+
 const Nav = () => {
   const { user, logOut } = useContext(AuthContext);
   const [dropdown, setDropDown] = useState(false);
+  const [isFixed, setIsFixed] = useState(false);
+
   const handleDropdown = () => {
     setDropDown(!dropdown);
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0 && !isFixed) {
+        setTimeout(() => {
+          setIsFixed(true);
+        }, 1000);
+      } else if (window.scrollY === 0) {
+        setIsFixed(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isFixed]);
+
   const handleSignOut = () => {
     logOut()
       .then()
       .catch((error) => alert(error.message));
   };
+
   const navList = (
     <>
       <li>
@@ -43,8 +62,9 @@ const Nav = () => {
       {user?.email ? <></> : <></>}
     </>
   );
+
   return (
-    <div className=" bgClr mulish  shadow-inner  shadow-slate-100 py-2 bg-slate-50 fixed w-full z-10">
+    <div className={`  duration-500 ease-in-out ${isFixed ? 'fixed  shadow-md  ' : ''} bgClr mulish shadow-inner shadow-slate-100 py-2 bg-slate-50 w-full z-10`}>
       <div className="navbar max-w-screen-2xl md:px-12 mx-auto py-3">
         <div className="navbar-start">
           <div className="dropdown">
@@ -84,7 +104,7 @@ const Nav = () => {
           </div>
           {user ? (
             <>
-              <div className="">
+              <div className="z-10">
                 <img
                   onClick={handleDropdown}
                   className="w-[45px] relative  border-2 p-0.5 h-[45px] rounded-full mr-2 hover:cursor-pointer"
@@ -92,9 +112,11 @@ const Nav = () => {
                   alt=""
                 />
                 {dropdown ? (
-                  <div className="absolute right-3 flex flex-col items-center justify-center gap-3 p-3 rounded-md bgprimary">
+                  <div className="absolute right-3 z-50 flex flex-col items-center justify-center gap-3 p-3 rounded-md bgprimary">
                     <h1 className="border-b">{user.displayName}</h1>
-                    <Link className="hover:text-blue-400" to="/dashboard">Dashboard</Link>
+                    <Link className="hover:text-blue-400" to="/dashboard">
+                      Dashboard
+                    </Link>
                     <button
                       onClick={handleSignOut}
                       className="btn  btn-sm py-2 bg border-none mr-2"
