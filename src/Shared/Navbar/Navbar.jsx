@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProdiver";
 import logo from "../../assets/logo.png";
+import ToggleTheme from "../../Pages/HOME/ToggleTheme/ToggleTheme";
 
 const Nav = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -132,6 +133,7 @@ const Nav = () => {
             </>
           ) : (
             <>
+              <ToggleTheme />
               <Link
                 className=" px-3 py-2  text-sm bg rounded-md mr-2 border text-blue-500 border-blue-300 "
                 to="/signup"

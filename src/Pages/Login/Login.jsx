@@ -14,9 +14,7 @@ const Login = () => {
     const navigate = useNavigate();
     const [showModal, setShowModal] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
-    const { signInUser, signInWithGoogle} = useContext(AuthContext);
-    // const [data,setData] = useState([]);
-    const togglePasswordVisibility = () => {
+    const { signInUser, signInWithGoogle} = useContext(AuthContext);    const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
     const handleSubmit = (e) => {

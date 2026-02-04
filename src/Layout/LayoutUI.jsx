@@ -9,6 +9,7 @@ export default function LayoutUI() {
             <Navbar></Navbar>
         </div>
         <Outlet></Outlet>
+        
         <div>
            <Footer></Footer>
         </div>
