@@ -18,7 +18,7 @@ const Nav = () => {
       if (window.scrollY > 0 && !isFixed) {
         setTimeout(() => {
           setIsFixed(true);
-        }, 1000);
+        }, 500);
       } else if (window.scrollY === 0) {
         setIsFixed(false);
       }
@@ -65,8 +65,8 @@ const Nav = () => {
   );
 
   return (
-    <div className={`  duration-500 ease-in-out ${isFixed ? 'fixed  shadow-md  ' : ''} bgClr mulish shadow-inner shadow-slate-100 py-2 bg-slate-50 w-full z-10`}>
-      <div className="navbar max-w-screen-2xl md:px-12 mx-auto py-3">
+    <div className={`duration-500 ease-in-out ${isFixed ? 'fixed  shadow-md  ' : ''}mulish bg-white dark:bg-[var(--bg-secondary)] shadow-inner  py-2 w-full mx-auto z-10`}>
+      <div className="navbar md:px-12 py-3">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

@@ -1,31 +1,89 @@
-@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-  
-.poppin{
-    font-family: "Poppins", sans-serif;
-}
-.mulish{
-    font-family: "Mulish", sans-serif;
-}
-.mainclr{
-    color: #3498DB;
-}
-.subclr{
-   color: #5DADE2;
+:root {
+   /* Brand */
+   --brand: #ff6154;
+   --brand-hover: #e55347;
+
+   /* Backgrounds */
+   --bg: #ffffff;
+   --bg-secondary: #f8fafc;
+   --bg-card: #ffffff;
+
+   /* Text */
+   --text-primary: #0f172a;
+   --text-secondary: #475569;
+   --text-muted: #64748b;
+
+   /* Borders & UI */
+   --border: #e2e8f0;
+   --ring: rgba(255, 97, 84, 0.35);
+
+   /* Status */
+   --success: #22c55e;
+   --warning: #f59e0b;
+   --error: #ef4444;
 }
 
-.btnstyle{
-    background-color: #d0eafc;
-    color: #3498DB;
-    border: 1px solid #d0eafc ;
+.dark {
+   /* Brand (same, brand consistency) */
+   --brand: #ff6b5f;
+   --brand-hover: #ff867c;
+
+   --hero-gradient-indigo: linear-gradient(
+      135deg,
+      rgba(129, 140, 248, 0.25),
+      rgba(3, 6, 32, 0.12),
+      transparent
+   );
+   /* Backgrounds */
+   --bg: #020617;
+   --bg-secondary: #01041c;
+   --bg-card: #0f172a;
+
+   --text-primary: #f8fafc;
+   --text-secondary: #cbd5f5;
+   --text-muted: #94a3b8;
+
+   --border: #1e293b;
+   --ring: rgba(255, 107, 95, 0.45);
+
+   --success: #4ade80;
+   --warning: #facc15;
+   --error: #f87171;
 }
-.bgprimary{
-    background-color: #e1f2ff;
+@keyframes spinSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+    animation: spinSlow 12s linear infinite;
+}
+  
+.poppin {
+   font-family: "Poppins", sans-serif;
+}
+.mulish {
+   font-family: "Mulish", sans-serif;
+}
+.mainclr {
+   color: #3498db;
+}
+.subclr {
+   color: #5dade2;
+}
+
+.btnstyle {
+   background-color: #d0eafc;
+   color: #3498db;
+   border: 1px solid #d0eafc;
+}
+.bgprimary {
+   background-color: #e1f2ff;
 }
 .transition-all {
-    transition: all 1s ease;
-  }
-  
+   transition: all 1s ease;
+}
