@@ -9,56 +9,57 @@ import useCoupon from "../../../Hooks/Coupon/useCoupon";
 
 const CouponSlider = () => {
   const [coupon, refetch] = useCoupon();
-   
+
   return (
-    <div className="bg-cover bgClr bg-no-repeat ">
-      <div className="lg:h-[50vh] container py-6 md:py-0 mx-auto  items-center justify-center md:flex-row gap-6  ">
-        <div className=" m-8 max-w-screen-xl mx-auto mulish ">
-          <Swiper
-            spaceBetween={30}
-            centeredSlides={true}
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-            }}
-           
-            breakpoints={{
-              640: {
-                  slidesPerView: 1, 
-              },
-              768: {
-                  slidesPerView: 1, 
-              },
-              1024: {
-                  slidesPerView: 1, 
-              },
+    <div className="bg-cover bg-no-repeat py-10">
+      <div className="container mx-auto">
+        <Swiper
+          spaceBetween={30}
+          centeredSlides={false} 
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
           }}
-            modules={[Autoplay]}
-            className="mySwiper  rounded-2xl  h-[35vh]  "
-          >
-            { coupon && coupon.map((cpn) => (
-              <SwiperSlide className="bg-cover rounded-lg flex flex-col  bg-slate-50   bg-no-repeat">
-                <div className="bg-blue-100 py-3 w-full rounded-t-lg text-center ">
-                    <h1 className="text-sm font-bold ">valid till : {cpn.date}</h1>
-                </div>
-                <div className="w-full px-12 pb-10 pt-4">
-                  <h1 className="text-4xl text-blue-900 lg:text-5xl font-bold ">
-                    {cpn.amount}% <span className="text-lg ">Discount</span>
-                  </h1>
-                  
-                  <p className="text-xl my-4 max-w-[600px] font-light text-blue-900 ">
-                    {cpn.des}
-                  </p>
-                  <p className="text-lg font-extrabold">
-                    {" "}
-                    coupon code:{" "}
-                    <span className="italic font-bold text-3xl">{cpn.code}</span>
-                  </p>
+          breakpoints={{
+            640: { slidesPerView: 1 },   
+            768: { slidesPerView: 2 },   
+            1024: { slidesPerView: 3 }, 
+          }}
+          modules={[Autoplay, Pagination, Navigation]}
+          
+          pagination={{ clickable: true }}
+          className="mySwiper"
+        >
+          {coupon &&
+            coupon.map((cpn) => (
+              <SwiperSlide key={cpn.code}>
+                <div className=" shadow-lg lg:h-80 rounded-2xl overflow-hidden  hover:shadow-xl transition-shadow duration-300">
+                  <div className=" py-3 text-center rounded-2xl">
+                    <h1 className="text-white p-6 bg-blue-950 font-semibold text-sm md:text-base">
+                      Valid till: {cpn.date}
+                    </h1>
+                  </div>
+                  <div className="p-6 md:p-10 text-center">
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                      {cpn.amount}%
+                      <span className="text-lg md:text-xl font-medium text-gray-500 ml-2">
+                        Discount
+                      </span>
+                    </h2>
+
+                    <p className="text-gray-600 text-md md:text-lg mb-6 max-w-md mx-auto">
+                      {cpn.des}
+                    </p>
+
+                    {/* Coupon code */}
+                    <div className="inline-block bg-gradient-to-r from-indigo-600 to-blue-500 text-white font-bold text-xl md:text-2xl py-2 px-4 rounded-full shadow-md hover:scale-105 transform transition-transform duration-300">
+                      {cpn.code}
+                    </div>
+                  </div>
                 </div>
               </SwiperSlide>
             ))}
-          </Swiper>
-        </div>
+        </Swiper>
       </div>
     </div>
   );
