@@ -105,6 +105,7 @@ const Nav = () => {
           </div>
           {user ? (
             <>
+              <ToggleTheme />
               <div className="z-10">
                 <img
                   onClick={handleDropdown}
@@ -135,14 +136,14 @@ const Nav = () => {
             <>
               <ToggleTheme />
               <Link
-                className=" px-3 py-2  text-sm bg rounded-md mr-2 border text-blue-500 border-blue-300 "
+                className=" px-4 py-2  text-sm bg rounded-md mr-2 border bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text  text-transparent  border-purple-500 "
                 to="/signup"
               >
                 Sign Up
               </Link>
               <Link
                 to="/login"
-                className="px-3 py-2 clr border text-sm btnstyle rounded-md"
+                className="px-4 py-2   text-sm  rounded-md bg-gradient-to-r from-indigo-400 to-purple-500"
               >
                 Log In
               </Link>{" "}
