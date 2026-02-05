@@ -66,7 +66,7 @@ const Nav = () => {
 
   return (
     <div className={`duration-500 ease-in-out ${isFixed ? 'fixed  shadow-md  ' : ''}mulish bg-white dark:bg-[var(--bg-secondary)] shadow-inner  py-2 w-full mx-auto z-10`}>
-      <div className="navbar md:px-12 py-3">
+      <div className="navbar px-2 py-3 max-w-7xl mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

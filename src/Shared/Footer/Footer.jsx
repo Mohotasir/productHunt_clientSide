@@ -1,67 +1,107 @@
-import { Link } from "react-router-dom";
-import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
-import logo from "../../assets/logo.png";
+import { Link } from "react-router-dom"
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaYoutube,
+} from "react-icons/fa"
+import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md"
+import logo from "../../assets/logo.png"
+
 export default function Footer() {
   return (
-    <div className="bg-blue-950  pt-6 md:pt-16 mt-12 popin">
-      <footer className="footer  flex flex-col md:flex-row justify-between items-center md:max-w-screen-md max-w-screen-xl mx-auto  text-neutral-content">
-        <aside className="">
-          <img className="w-48 -ml-6" src={logo} alt="" />
-          <p>
-            TrendZ company Ltd.
-            <br />
-            Hunt Your Product
-          </p>
-        </aside>
-        <div className=" font-semibold text-gray-400 flex flex-col gap-4">
-            <Link className="flex justify-center items-center gap-1 hover:text-blue-200" to="/"><span className="text-2xl"><MdOutlineKeyboardDoubleArrowRight /></span> Home</Link>
-            <Link className="flex justify-center items-center gap-1 hover:text-blue-200" to="/allproducts"><span className="text-2xl"><MdOutlineKeyboardDoubleArrowRight /></span> Product</Link>
-        </div>
-        <nav>
-          <h6 className="footer-title">Social</h6>
-          <div className="grid grid-flow-col gap-4">
-            <a>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                className="fill-current"
-              >
-                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
-              </svg>
-            </a>
-            <a>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                className="fill-current"
-              >
-                <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
-              </svg>
-            </a>
-            <a>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                className="fill-current"
-              >
-                <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
-              </svg>
-            </a>
+    <footer className="relative mt-20">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-950 via-blue-950 to-purple-950" />
+
+      <div className="relative z-10 max-w-screen-xl mx-auto px-6 py-16 text-gray-300">
+        {/* Top Section */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+
+          {/* BRAND */}
+          <div className="space-y-4">
+            <img src={logo} alt="TrendZ Logo" className="w-40 -ml-4" />
+            <p className="text-sm leading-relaxed text-gray-400">
+              <span className="font-semibold text-white">TrendZ</span> is a
+              modern product-hunt platform to discover trending products,
+              powered by AI insights and real user feedback.
+            </p>
           </div>
-        </nav>
-      </footer>
-      <div className="divider"></div>
-      <footer className="footer p-6 text-gray-400 footer-center  bg-blue-950 ">
-        <aside>
-          <p>Copyright © 2024 - All right reserved by TrendZ</p>
-        </aside>
-      </footer>
-    </div>
-  );
+
+          {/* QUICK LINKS */}
+          <div>
+            <h3 className="text-lg font-semibold text-white mb-4">
+              Quick Links
+            </h3>
+            <ul className="space-y-3 font-medium">
+              <li>
+                <Link
+                  to="/"
+                  className="flex items-center gap-2 hover:text-indigo-400 transition"
+                >
+                  <MdOutlineKeyboardDoubleArrowRight className="text-xl" />
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/allproducts"
+                  className="flex items-center gap-2 hover:text-indigo-400 transition"
+                >
+                  <MdOutlineKeyboardDoubleArrowRight className="text-xl" />
+                  Products
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/blogs"
+                  className="flex items-center gap-2 hover:text-indigo-400 transition"
+                >
+                  <MdOutlineKeyboardDoubleArrowRight className="text-xl" />
+                  Blogs
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* SOCIAL + TRUST */}
+          <div>
+            <h3 className="text-lg font-semibold text-white mb-4">
+              Connect With Us
+            </h3>
+
+            <div className="flex gap-4 mb-6">
+              <a className="p-3 rounded-xl bg-white/5 hover:bg-indigo-500/20 text-indigo-400 transition">
+                <FaTwitter />
+              </a>
+              <a className="p-3 rounded-xl bg-white/5 hover:bg-indigo-500/20 text-indigo-400 transition">
+                <FaYoutube />
+              </a>
+              <a className="p-3 rounded-xl bg-white/5 hover:bg-indigo-500/20 text-indigo-400 transition">
+                <FaFacebookF />
+              </a>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-white/5 backdrop-blur border border-white/10">
+              <h4 className="text-white font-semibold">
+                Trusted Platform
+              </h4>
+              <p className="text-sm mt-2 text-gray-400">
+                Verified products • Real reviews • Secure browsing
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="my-10 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+
+        {/* Bottom */}
+        <div className="text-center text-sm text-gray-400">
+          © {new Date().getFullYear()}{" "}
+          <span className="text-white font-medium">TrendZ</span>.  
+          All rights reserved.
+        </div>
+      </div>
+    </footer>
+  )
 }
