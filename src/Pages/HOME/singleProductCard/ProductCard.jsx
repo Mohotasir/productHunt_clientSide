@@ -78,7 +78,7 @@ export default function ProductCard({ product, refetch }) {
             <button
               onClick={() => handleVote(product._id)}
               disabled={disabled}
-              className="btn bg-white  dark:bg-slate-900"
+              className="btn bg-white outline-none dark:border-none dark:bg-gradient-to-r from-indigo-400 to-purple-500"
             >
               <BiSolidUpArrow />
               {product.upvoteCount}
@@ -113,7 +113,7 @@ export default function ProductCard({ product, refetch }) {
         <button
           onClick={() => handleVote(product._id)}
           disabled={disabled}
-          className="btn bg-white  dark:bg-slate-900"
+          className="btn bg-white outline-none dark:border-none  dark:bg-gradient-to-r from-indigo-400 to-purple-500 "
         >
           <BiSolidUpArrow />
           {product.upvoteCount}
