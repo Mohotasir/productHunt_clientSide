@@ -66,7 +66,7 @@ export default function ProductCard({ product, refetch }) {
   };
   console.log(product)
   return (
-    <div className="border mulish flex items-center justify-between px-6 py-3 rounded-sm border-gray-100 hover:bg-gray-50">
+    <div className="border mulish flex items-center justify-between px-6 py-3 rounded-sm border-gray-100 dark:border-gray-900 hover:bg-gray-50 dark:hover:bg-slate-900 transition-colors duration-300 delay-100">
       <div className="flex w-full flex-col md:flex-row gap-3  md:items-center lg:w-10/12">
         <div className="flex justify-between  ">
           <img
@@ -78,7 +78,7 @@ export default function ProductCard({ product, refetch }) {
             <button
               onClick={() => handleVote(product._id)}
               disabled={disabled}
-              className="btn bg-white border"
+              className="btn bg-white  dark:bg-slate-900"
             >
               <BiSolidUpArrow />
               {product.upvoteCount}
@@ -113,7 +113,7 @@ export default function ProductCard({ product, refetch }) {
         <button
           onClick={() => handleVote(product._id)}
           disabled={disabled}
-          className="btn bg-white border"
+          className="btn bg-white  dark:bg-slate-900"
         >
           <BiSolidUpArrow />
           {product.upvoteCount}
