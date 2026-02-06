@@ -55,6 +55,9 @@
    --warning: #facc15;
    --error: #f87171;
 }
+.ts-bg{
+   background-color: var(--hero-gradient-indigo);
+}
 @keyframes spinSlow {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }

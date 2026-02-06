@@ -1,150 +1,159 @@
-import React, { useContext, useState } from 'react';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { FcGoogle } from 'react-icons/fc';
-import { Link, useLocation } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import React, { useContext, useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
-import { AuthContext } from '../../AuthProvider/AuthProdiver';
-import useAxiosPublic from '../../Hooks/Axios/useAxiosPublic';
-
+import { AuthContext } from "../../AuthProvider/AuthProdiver";
+import useAxiosPublic from "../../Hooks/Axios/useAxiosPublic";
 
 const Login = () => {
-    const axiosPublic = useAxiosPublic()
-    const location = useLocation();
-    const navigate = useNavigate();
-    const [showModal, setShowModal] = useState(false);
-    const [showPassword, setShowPassword] = useState(false);
-    const { signInUser, signInWithGoogle} = useContext(AuthContext);    const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
-    };
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const form = e.target;
-        const email = form.email.value;
-        const pass = form.password.value;
+  const axiosPublic = useAxiosPublic();
+  const location = useLocation();
+  const navigate = useNavigate();
 
-        //console.log(email,pass);
-        signInUser(email, pass)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                if (user) {
-                    setShowModal(true);
-                    //----------token-------
-                    //const userAuth = { email }
-                    //axios.post('https://car-doctor-server-tahsins-projects-aaa37910.vercel.app/jwt')
-                        //.then(res => {
-                            //console.log(res.data)
-                            setTimeout(() => {
-                                //if (res.data.success) {
-                                    navigate(location?.state ? location?.state : '/');
-                               // }
-                                setShowModal(false);
+  const [showModal, setShowModal] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
-                            }, 1500);
-                        //})
+  const { signInUser, signInWithGoogle } = useContext(AuthContext);
 
-                }
-                e.target.reset();
-            })
-            .catch(error => {
-                alert("Login Failed!!")
-                console.log(error.message)
-            });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { email, password } = e.target;
 
-    };
-    const handleGoogleLogin = () => {
-        signInWithGoogle()
-            .then((res) => {
-                const usrInfo = {
-                    name: res.user?.displayName,
-                    email: res.user?.email,
-                    photoURL: res.user?.photoURL,
-                    status : null,
-                    role: 'user'
-                }
-                
-                axiosPublic.post('/users',usrInfo)
-                .then(res=>{
-                    console.log(res.data);
-                })
-                setShowModal(true);
-                setTimeout(() => {
-                    navigate(location?.state ? location?.state : '/');
-                    setShowModal(false);
+    signInUser(email.value, password.value)
+      .then((res) => {
+        if (res.user) {
+          setShowModal(true);
+          setTimeout(() => {
+            navigate(location?.state || "/");
+            setShowModal(false);
+          }, 1500);
+        }
+        e.target.reset();
+      })
+      .catch(() => alert("Login failed!"));
+  };
 
-                }, 1000);
+  const handleGoogleLogin = () => {
+    signInWithGoogle()
+      .then((res) => {
+        const usrInfo = {
+          name: res.user?.displayName,
+          email: res.user?.email,
+          photoURL: res.user?.photoURL,
+          status: null,
+          role: "user",
+        };
 
+        axiosPublic.post("/users", usrInfo);
+        setShowModal(true);
 
-            })
-            .catch(error => {
-                const errMsg = error.message;
-                alert(errMsg);
-            });
-    };
-    return (
-        <div className={`flex flex-col-reverse lg:flex-row mulish justify-around`}>
-            
-            <div className='lg:w-1/3'>
-                
-                <form className={` shadow-lg  m-6 mt-24  p-12 rounded-lg`} onSubmit={handleSubmit} data-aos="zoom-in" data-aos-duration='1000'>
-                   <p className='text-3xl font-bold text-center  my-4'>Log in</p>
-                    <div className="mb-4">
-                        <label className="block clr text-sm font-semibold mb-2" htmlFor="email">Email</label>
-                        <input
-                            type="email"
-                            name="email"
-                            id="email"
-                            className="appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:border-cyan-700"
-                            placeholder="Enter your email"
+        setTimeout(() => {
+          navigate(location?.state || "/");
+          setShowModal(false);
+        }, 1000);
+      })
+      .catch((err) => alert(err.message));
+  };
 
+  return (
+    <div className="min-h-screen flex items-center justify-center  px-4 dark:text-slate-300">
+      <div className="w-full max-w-md   rounded-2xl shadow-xl p-8 border dark:border-purple-950 ">
+        <h2 className="text-3xl font-bold text-center ">
+          Welcome Back
+        </h2>
+        <p className="text-center text-gray-400 mb-8">
+          Login to your account
+        </p>
 
-                            required
-                        />
-                    </div>
-                    <div className="mb-4 relative">
-                        <label className="block clr text-sm font-semibold mb-2" htmlFor="password">Password</label>
-                        <input
-                            type={showPassword ? 'text' : 'password'}
-                            name="password"
-                            id="password"
-                            className="appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:border-cyan-700 pr-10"
-                            placeholder="Enter your password"
+        <form onSubmit={handleSubmit} className="space-y-5">
+          {/* Email */}
+          <div>
+            <label className="block text-sm font-medium  mb-1">
+              Email address
+            </label>
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="you@example.com"
+              className="w-full px-4 py-2 border rounded-lg dark:bg-[var(--bgsecondary)] dark:border-indigo-900 focus:ring-2 focus:ring-purple-500 focus:outline-none"
+            />
+          </div>
 
-                            required
-                        />
-                        <button
-                            type="button"
-                            className="absolute top-9 right-0 flex items-center justify-center px-3 bg-transparent focus:outline-none"
-                            onClick={togglePasswordVisibility}
-                        >
-                            {showPassword ? <FaEyeSlash className="h-5 w-5 text-black" /> : <FaEye className="h-5 w-5 text-black" />}
-                        </button>
-                    </div>
-                    <button
-                        type="submit"
-                        className="w-full text-white btnstyle font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                    >
-                        Login
-                    </button>
-                    <p className='text-gray-700 text-sm py-2 '>Don't have any account? please <Link className='underline text-blue-600' to="/signup">register</Link> </p>
-                    <div className="text-black flex text-3xl items-center justify-center gap-2 pt-2 border-t-2 mt-6 ">
-                        <div onClick={handleGoogleLogin} className='hover:bg-gray-200 p-3 items-center justify-center cursor-pointer rounded-md border   flex'><FcGoogle /> <span className='text-sm font-semibold ml-3 '>Log in with Google</span> </div>
-                        
-                    </div>
-                </form>
-            </div>
-            {showModal && (
-                <div className="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
-                    <div className="bg-white flex flex-col items-center justify-center p-5 md:p-12 rounded-lg shadow-lg text-black">
-                        <div className='py-2 t-clr text-5xl font-semibold'><IoMdCheckmarkCircleOutline /></div>
-                        <p className="text-2xl t-clr font-semibold mb-2">Login Successful!</p>
-                        <p className='text-sm'>You have successfully logged in!</p>
-                    </div>
-                </div>
-            )}
+          {/* Password */}
+          <div className="relative">
+            <label className="block text-sm font-medium  mb-1">
+              Password
+            </label>
+            <input
+              type={showPassword ? "text" : "password"}
+              name="password"
+              required
+              placeholder="••••••••"
+              className="w-full px-4 py-2 border rounded-lg dark:bg-[var(--bgsecondary)] dark:border-indigo-900 focus:ring-2 focus:ring-purple-500 focus:outline-none"
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-3 top-9 text-gray-500 hover:text-gray-700"
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </button>
+          </div>
 
+          {/* Login Button */}
+          <button
+            type="submit"
+            className="w-full bg-gradient-to-r from-indigo-500 to-purple-500 hover:bg-purple-700 text-white font-semibold py-2 rounded-lg transition"
+          >
+            Log In
+          </button>
+        </form>
+
+        {/* Divider */}
+        <div className="flex items-center my-6">
+          <div className="flex-1 border-t"></div>
+          <span className="px-3 text-sm text-gray-400">OR</span>
+          <div className="flex-1 border-t"></div>
         </div>
-    );
+
+        {/* Google Login */}
+        <button
+          onClick={handleGoogleLogin}
+          className="w-full flex items-center justify-center gap-3 border rounded-lg py-2 hover:bg-gray-50 transition"
+        >
+          <FcGoogle className="text-xl" />
+          <span className="font-medium text-gray-700">
+            Continue with Google
+          </span>
+        </button>
+
+        {/* Register */}
+        <p className="text-sm text-center text-gray-600 mt-6">
+          Don’t have an account?{" "}
+          <Link to="/signup" className="text-cyan-600 font-semibold hover:underline">
+            Sign up
+          </Link>
+        </p>
+      </div>
+
+      {/* Success Modal */}
+      {showModal && (
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+          <div className="bg-white p-8 rounded-xl text-center shadow-xl animate-scaleIn">
+            <IoMdCheckmarkCircleOutline className="text-5xl text-cyan-600 mx-auto mb-3" />
+            <h3 className="text-xl font-semibold text-gray-800">
+              Login Successful
+            </h3>
+            <p className="text-sm text-gray-500 mt-1">
+              Redirecting to dashboard...
+            </p>
+          </div>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default Login;

@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "phunt-9a498",
     "public": "dist",
     "ignore": [
       "firebase.json",
